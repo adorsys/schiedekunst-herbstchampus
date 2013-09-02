@@ -14,7 +14,7 @@ if ( SHELL.promptBoolean("Create Project ?") ) {
   
   java new-enum-type --named Partei --package ~.model;
   java new-enum-const CDU;
-  java new-enum-const CSU;
+  java new-enum-const SPD;
   java new-enum-const Sonstige;
   cd ..;
   
@@ -27,6 +27,8 @@ if ( SHELL.promptBoolean("Create Project ?") ) {
   java new-field "@javax.persistence.PersistenceContext private javax.persistence.EntityManager em;";
   @stimmeClass = packageName.concat(".model.Stimme");
   java new-method "public void waehle(" $stimmeClass " s) {em.persist(s); }";
+  
+  jta setup
   
   set ACCEPT_DEFAULTS false;
 }
