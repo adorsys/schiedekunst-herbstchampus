@@ -25,7 +25,8 @@ if ( SHELL.promptBoolean("Create Project ?") ) {
   
   beans new-bean --type  ~.Wahl.java --scoped APPLICATION;
   java new-field "@javax.persistence.PersistenceContext private javax.persistence.EntityManager em;";
-  java new-method "public void waehle(".concat($packageName).concat("gurk.model.Stimme s) {	em.persist(s); }");
+  @stimmeClass = packageName.concat(".model.Stimme");
+  java new-method "public void waehle(" $stimmeClass " s) {em.persist(s); }";
   
   set ACCEPT_DEFAULTS false;
 }
